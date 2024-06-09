@@ -47,7 +47,7 @@ export default function App() {
           icon: data.current.condition.icon,
           conditionText: data.current.condition.text,
         });
-        const backendRes = await axios.post('http://localhost:5173',{
+        const backendRes = await axios.post('http://localhost:5173/',{
           city: data.location.country
         });
 
@@ -96,8 +96,8 @@ export default function App() {
       <LoadingButton
       type="submit"
       variant="contained"
-      loading={loading}
-      //loadingIndicator={<span>cargando...</span>}
+      loading={loading} 
+
       loadingIndicator="cargando..."
       > 
       Buscar
