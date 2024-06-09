@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const API_WEATHER = `http://api.weatherapi.com/v1/current.json?key=${config.apiKey}&lang=es&q=`;
 //const API_WEATHER = `http://api.weatherapi.com/v1/current.json?key=70efb06b74a14d6e96f03513240506&q=`;
-//const API_WEATHER = 'http://localhost:5173/api/weather';
+
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -47,9 +47,8 @@ export default function App() {
           icon: data.current.condition.icon,
           conditionText: data.current.condition.text,
         });
-        const backendRes = await axios.post('http://localhost:5173/weather',{
-          //city: data.location.country
-          city: data.city
+        const backendRes = await axios.post('http://localhost:5173',{
+          city: data.location.country
         });
 
         if (backendRes.status !== 201){
